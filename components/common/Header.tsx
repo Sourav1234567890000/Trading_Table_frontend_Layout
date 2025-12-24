@@ -20,30 +20,51 @@ export default function AxiomHeader() {
 
         {/* Navigation */}
         <nav className="hidden md:flex space-x-6 text-gray-400">
-          <Link href="/" className="hover:text-white transition-colors duration-200">
+          <Link
+            href="/"
+            className="hover:text-white transition-colors duration-200"
+          >
             Home
           </Link>
-          <Link href="/markets" className="hover:text-white transition-colors duration-200">
+          <Link
+            href="/markets"
+            className="hover:text-white transition-colors duration-200"
+          >
             Markets
           </Link>
-          <Link href="/pulse" className="hover:text-white transition-colors duration-200">
+          <Link
+            href="/pulse"
+            className="hover:text-white transition-colors duration-200"
+          >
             Pulse
           </Link>
-          <Link href="/docs" className="hover:text-white transition-colors duration-200">
+          <Link
+            href="/docs"
+            className="hover:text-white transition-colors duration-200"
+          >
             Docs
           </Link>
         </nav>
 
         {/* User Action */}
         <div className="hidden md:flex items-center space-x-4">
-          <button className="bg-[#1f1f24] hover:bg-[#2a2a30] px-4 py-2 rounded-lg text-white transition-colors duration-200">
-            Connect Wallet
-          </button>
+          <a
+            href="https://2048-game-five-psi.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-[#1f1f24] hover:bg-[#2a2a30] px-4 py-2 rounded-lg text-white transition-colors duration-200">
+             2048 GAME
+            </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="focus:outline-none"
+          >
             <svg
               className="w-6 h-6 text-white"
               fill="none"
@@ -54,7 +75,9 @@ export default function AxiomHeader() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                d={
+                  menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
+                }
               />
             </svg>
           </button>
