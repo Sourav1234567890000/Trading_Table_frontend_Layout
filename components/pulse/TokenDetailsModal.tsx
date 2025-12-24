@@ -13,7 +13,7 @@ export default function TokenDetailsModal({
   open,
   onOpenChange,
 }: TokenDetailsModalProps) {
-  if (!token) return null;
+  // if (!token) return null;
 
   const isPositive = token.priceChange24h >= 0;
 
@@ -58,8 +58,8 @@ export default function TokenDetailsModal({
             <span className="text-gray-400">Market Cap</span>
             <span>${token.marketCap.toLocaleString()}</span>
 
-            <span className="text-gray-400">Holders</span>
-            <span>{token.holders.toLocaleString()}</span>
+            {/* <span className="text-gray-400">Holders</span>
+            <span>{token.holders.toLocaleString()}</span> */}
 
             <span className="text-gray-400">Tx (24h)</span>
             <span>{token.transactions24h}</span>
