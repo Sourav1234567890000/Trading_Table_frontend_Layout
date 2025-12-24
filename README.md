@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Token Discovery Table – Axiom Trade (Frontend Task)
 
-## Getting Started
+A pixel-accurate, performance-optimized replica of Axiom Trade’s Token Discovery (Pulse) table, built with modern frontend best practices.
 
-First, run the development server:
+https://axiom.trade/pulse - refernce link
 
-```bash
+Overview
+
+This project implements a real-time token discovery table with multiple interaction patterns, smooth price updates, and robust error handling.
+The goal was to demonstrate clean architecture, performance optimization, and reusable component design using Next.js 14 App Router.
+
+Tech Stack
+
+Framework: Next.js 14 (App Router)
+
+Language: TypeScript (strict mode)
+
+Styling: Tailwind CSS
+
+UI Components: Radix UI (accessible primitives)
+
+State & Logic: Custom hooks, memoized components
+
+Architecture: Feature-based / Atomic component design
+
+1-Feature IMplemented
+Each column is independently rendered and error-isolated.
+
+Token Columns :-
+
+New Pairs
+
+Final Stretch
+
+Migrated
+
+2-Interactions
+
+Hover cards for quick token insights
+
+Tooltips for contextual hints
+
+Click-to-open modal with detailed token information
+
+Sortable columns (Price / 24h Change)
+
+3- Real-Time Updates
+
+Mock WebSocket-like price updates
+
+Smooth green/red price flash transitions on change
+
+Efficient re-renders using memoization
+
+4- Loading & Error Handling
+
+Skeleton loaders during loading states
+
+Column-level Error Boundaries (isolated failures)
+
+Graceful UI fallback on runtime errors
+
+5- Dark theme matching Axiom Trade
+
+Smooth hover transitions
+
+No layout shifts (CLS-safe)
+
+Responsive grid layout
+
+project structure
+
+6.Testing Error Boundaries
+
+You can simulate an error by intentionally throwing an error inside a TokenRow or TokenColumn to verify isolated error handling.
+
+...Notes on Scope & Trade-offs...
+
+1.WebSocket is mocked for deterministic behavior
+
+2.Redux Toolkit & React Query were intentionally minimized to avoid unnecessary complexity for static mock data
+
+3.UI closely matches the reference design; minor pixel differences may exist depending on font rendering
+
+
+
+Performance Considerations
+
+Memoized sorting and rendering
+
+No unnecessary state lifting
+
+Smooth interactions under 100ms
+
+No layout shifts (CLS-safe)
+
+
+
+Conclusion
+
+This implementation focuses on:
+
+Clean, reusable architecture
+
+Performance-first UI
+
+Accessible interaction patterns
+
+Production-grade error handling
+
+Built to scale and extend easily across future features.
+
+
+folder structure
+src/
+├── app/
+│ └── pulse/
+│ └── page.tsx
+├── components/
+│ ├── pulse/
+│ │ ├── TokenColumn.tsx
+│ │ ├── TokenRow.tsx
+│ │ ├── TokenDetailsModal.tsx
+│ │ └── TokenSkeleton.tsx
+│ └── common/
+│ └── ErrorBoundary.tsx
+├── hooks/
+│ ├── useMockPriceUpdates.ts
+│ └── usePriceFlash.ts
+├── data/
+│ └── mockTokens.ts
+├── types/
+│ ├── token.ts
+│ └── sort.ts
+
+Setup and RUn
+
+# Install dependencies
+
+npm install
+
+# Run development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Author
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Sourav Singh Negi
+Frontend Developer (React / TypeScript / Next.js)
