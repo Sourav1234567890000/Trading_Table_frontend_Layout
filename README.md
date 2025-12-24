@@ -112,7 +112,6 @@ Built to scale and extend easily across future features.
 
 
 folder structure
-src/
 ├── app/
 │ └── pulse/
 │ └── page.tsx
