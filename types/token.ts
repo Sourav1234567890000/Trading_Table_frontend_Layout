@@ -8,6 +8,8 @@ export interface Token {
   symbol: string;
   contract: string;
 
+  avatar: string; 
+
   // Pricing
   price: number;
   priceChange24h: number;

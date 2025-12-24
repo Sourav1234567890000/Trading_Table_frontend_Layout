@@ -10,6 +10,8 @@ const baseTokens: Token[] = [
     symbol: "AXM",
     contract: "@xabc...123",
 
+    avatar: "random",
+
     // Pricing
     price: 0.0234,
     priceChange24h: 4.21,
@@ -39,6 +41,7 @@ const generatedTokens: Token[] = Array.from(
     name: `Token ${i + 1}`,
     symbol: `TK${i + 1}`,
     contract: `@0x${Math.random().toString(16).slice(2, 8)}...`,
+    avatar: `https://api.dicebear.com/7.x/identicon/svg?seed=token-${i}`,
 
     // Pricing
     price: +(Math.random() * 2).toFixed(4),

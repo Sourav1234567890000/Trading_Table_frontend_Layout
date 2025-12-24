@@ -43,36 +43,34 @@ export default function TokenColumn({
 
   return (
     <div className="bg-[#0b0b0f] rounded-lg border border-[#1f1f24]">
-      {/* Header */}
-      <div className="px-4 py-3 border-b border-[#1f1f24]">
-        <h2 className="text-sm font-semibold text-white">{title}</h2>
-        <p className="text-xs text-gray-400">{tokens.length} tokens</p>
+      {/* HEADER */}
+      <div className="px-3 py-4 border-b border-[#1f1f24]">
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-semibold text-white">{title}</h2>
+          <span className="text-xs text-gray-500">{tokens.length}</span>
+        </div>
 
-        {/* Sort Controls */}
-        <div className="mt-2 flex gap-3 text-xs text-gray-400">
+        {/* SORT CONTROLS */}
+        <div className="mt-1 flex gap-4 text-[11px] text-gray-500">
           <button
             onClick={() => toggleSort("price")}
-            className={`hover:text-white ${
-              sortKey === "price" ? "text-white" : ""
-            }`}
+            className={`hover:text-white ${sortKey === "price" ? "text-white" : ""}`}
           >
             Price {sortKey === "price" && (sortOrder === "asc" ? "↑" : "↓")}
           </button>
 
           <button
             onClick={() => toggleSort("change")}
-            className={`hover:text-white ${
-              sortKey === "change" ? "text-white" : ""
-            }`}
+            className={`hover:text-white ${sortKey === "change" ? "text-white" : ""}`}
           >
             24h % {sortKey === "change" && (sortOrder === "asc" ? "↑" : "↓")}
           </button>
         </div>
       </div>
 
-      {/* List */}
+      {/* LIST */}
       <Tooltip.Provider delayDuration={200}>
-        <div className="overflow-y-auto max-h-[500px] divide-y divide-[#1f1f24]">
+        <div className="max-h-[420px] overflow-y-auto divide-y divide-white/5">
           {isLoading
             ? Array.from({ length: placeholderCount }).map((_, i) => (
                 <TokenSkeleton key={i} />
