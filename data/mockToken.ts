@@ -6,7 +6,7 @@ const CHAINS = ["SOL", "ETH", "BASE"] as const;
 const baseTokens: Token[] = [
   {
     id: "1",
-    name: "Axiom",
+    name: "tradeTable",
     symbol: "AXM",
     contract: "@xabc...123",
 
@@ -35,7 +35,7 @@ const baseTokens: Token[] = [
 ];
 
 const generatedTokens: Token[] = Array.from(
-  { length: 40 },
+  { length: 100 },
   (_, i): Token => ({
     id: `auto-${i}`,
     name: `Token ${i + 1}`,

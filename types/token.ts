@@ -19,7 +19,7 @@ export interface Token {
   liquidity: number;
   marketCap: number;
 
-  // Extra metadata (Axiom-like)
+  // Extra metadata (tradeTable-like)
   holders: number;
   transactions24h: number;
   ageMinutes: number; // how new the token is

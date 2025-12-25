@@ -35,10 +35,10 @@ export default function TokenRow({ token }: TokenRowProps) {
       <div
         onClick={() => setOpen(true)}
         className={`
-          group grid grid-cols-[120px_1fr_7.5ch] sm:grid-cols-[120px_1fr_96px]
+          group grid grid-cols-[120px_1fr_96px] sm:grid-cols-[100px_1fr_80px] xs:grid-cols-[80px_1fr_60px]
           items-center
-          px-2 py-2
-          text-sm
+          px-2 sm:px-1 py-3 sm:py-2 xs:py-1.5
+          text-[clamp(12px,1.2vw,14px)]
           border-b border-white/5
           cursor-pointer
           transition-colors
@@ -46,42 +46,50 @@ export default function TokenRow({ token }: TokenRowProps) {
           ${flashBg}
         `}
       >
-        {/* LEFT — AVATAR + NAME + SYMBOL */}
+        {/* LEFT — NAME (HoverCard) */}
         <HoverCard.Root openDelay={150}>
           <HoverCard.Trigger asChild>
-            <div className="flex flex-col items-center gap-1 cursor-pointer sm:items-start truncate">
+            <div className="flex flex-col items-center gap-1 cursor-pointer">
               <img
                 src={token.avatar}
                 alt={token.name}
-                className="w-6 h-6 rounded-full"
+                className="w-4 sm:w-3 xs:w-2 rounded-full"
               />
-              <span className="flex items-center gap-1 font-medium text-white truncate">
+              <span className="flex items-center gap-1 font-medium text-white truncate text-[clamp(12px,1.2vw,14px)]">
                 {token.name}
-                {token.verified && <CheckCircle className="w-3 h-3 text-blue-400" />}
+                {token.verified && (
+                  <CheckCircle className="w-3 sm:w-2 xs:w-2 text-blue-400" />
+                )}
               </span>
-              <span className="text-xs text-gray-400 truncate">{token.symbol}</span>
+              <span className="text-xs text-gray-400">{token.symbol}</span>
             </div>
           </HoverCard.Trigger>
 
           <HoverCard.Content
             side="bottom"
             sideOffset={12}
-            className="axiom-hover w-64 p-4"
+            className="tradeTable-hover w-64 sm:w-48 xs:w-36 p-3"
           >
             <div className="flex items-center gap-3">
-              <img src={token.avatar} alt={token.name} className="w-12 h-12 rounded-full" />
+              <img
+                src={token.avatar}
+                alt={token.name}
+                className="w-12 sm:w-10 xs:w-8 rounded-full"
+              />
               <div>
                 <div className="flex items-center gap-1">
                   <span className="font-semibold">{token.name}</span>
-                  {token.verified && <CheckCircle className="w-4 h-4 text-blue-400" />}
+                  {token.verified && (
+                    <CheckCircle className="w-4 sm:w-3 xs:w-3 text-blue-400" />
+                  )}
                 </div>
                 <span className="text-sm text-gray-400">{token.symbol}</span>
               </div>
             </div>
 
-            <div className="my-3 h-px bg-white/10" />
+            <div className="my-2 h-px bg-white/10" />
 
-            <div className="grid grid-cols-2 gap-y-2 text-xs">
+            <div className="grid grid-cols-2 gap-y-1 text-xs sm:text-[10px] xs:text-[9px]">
               <span className="text-gray-400">Risk</span>
               <span className={riskColor}>{token.riskScore}/100</span>
 
@@ -97,14 +105,16 @@ export default function TokenRow({ token }: TokenRowProps) {
           </HoverCard.Content>
         </HoverCard.Root>
 
-        {/* MIDDLE — METADATA (DESKTOP ONLY) */}
-        <div className="hidden sm:flex items-center gap-2 text-xs text-gray-300 mr-2 flex-wrap">
+        {/* MIDDLE — DATA */}
+        <div className="flex items-center gap-2 text-xs text-gray-300 mr-2 sm:gap-1 xs:gap-0">
           {/* Risk */}
           <HoverCard.Root>
             <HoverCard.Trigger asChild>
-              <span className={`cursor-help font-medium ${riskColor}`}>{token.riskScore}</span>
+              <span className={`cursor-help font-medium ${riskColor}`}>
+                {token.riskScore}
+              </span>
             </HoverCard.Trigger>
-            <HoverCard.Content className="axiom-hover">Risk Score (0–100)</HoverCard.Content>
+            <HoverCard.Content className="tradeTable-hover">Risk Score (0–100)</HoverCard.Content>
           </HoverCard.Root>
 
           {/* Bonding */}
@@ -112,10 +122,15 @@ export default function TokenRow({ token }: TokenRowProps) {
             <HoverCard.Root>
               <HoverCard.Trigger asChild>
                 <div className="w-10 h-1.5 bg-white/10 rounded-full overflow-hidden cursor-help">
-                  <div className="h-full bg-blue-400" style={{ width: `${token.bondingProgress}%` }} />
+                  <div
+                    className="h-full bg-blue-400"
+                    style={{ width: `${token.bondingProgress}%` }}
+                  />
                 </div>
               </HoverCard.Trigger>
-              <HoverCard.Content className="axiom-hover">Bonding Progress: {token.bondingProgress}%</HoverCard.Content>
+              <HoverCard.Content className="tradeTable-hover">
+                Bonding Progress: {token.bondingProgress}%
+              </HoverCard.Content>
             </HoverCard.Root>
           )}
 
@@ -124,7 +139,7 @@ export default function TokenRow({ token }: TokenRowProps) {
             <HoverCard.Trigger asChild>
               <span className="cursor-help">${token.liquidity.toLocaleString()}</span>
             </HoverCard.Trigger>
-            <HoverCard.Content className="axiom-hover">Liquidity</HoverCard.Content>
+            <HoverCard.Content className="tradeTable-hover">Liquidity</HoverCard.Content>
           </HoverCard.Root>
 
           {/* Volume */}
@@ -132,7 +147,7 @@ export default function TokenRow({ token }: TokenRowProps) {
             <HoverCard.Trigger asChild>
               <span className="cursor-help">${token.volume24h.toLocaleString()}</span>
             </HoverCard.Trigger>
-            <HoverCard.Content className="axiom-hover">24h Volume</HoverCard.Content>
+            <HoverCard.Content className="tradeTable-hover">24h Volume</HoverCard.Content>
           </HoverCard.Root>
 
           {/* Holders */}
@@ -140,17 +155,8 @@ export default function TokenRow({ token }: TokenRowProps) {
             <HoverCard.Trigger asChild>
               <span className="cursor-help">{token.holders.toLocaleString()}</span>
             </HoverCard.Trigger>
-            <HoverCard.Content className="axiom-hover">Holders</HoverCard.Content>
+            <HoverCard.Content className="tradeTable-hover">Holders</HoverCard.Content>
           </HoverCard.Root>
-        </div>
-
-        {/* MOBILE METADATA */}
-        <div className="flex flex-col sm:hidden mt-1 text-xs text-gray-300 gap-1">
-          <span className={`cursor-help font-medium ${riskColor}`}>Risk: {token.riskScore}</span>
-          {token.bondingProgress !== undefined && <span>Bonding: {token.bondingProgress}%</span>}
-          <span>Liquidity: ${token.liquidity.toLocaleString()}</span>
-          <span>24h Vol: ${token.volume24h.toLocaleString()}</span>
-          <span>Holders: {token.holders.toLocaleString()}</span>
         </div>
 
         {/* RIGHT — PRICE */}
@@ -162,7 +168,7 @@ export default function TokenRow({ token }: TokenRowProps) {
                 : priceDirection === "down"
                 ? "text-red-400"
                 : "text-white"
-            }`}
+            } text-[clamp(12px,1.2vw,14px)]`}
           >
             ${token.price.toFixed(4)}
           </span>

@@ -72,7 +72,7 @@ export default function PulsePage() {
         </div>
 
         {/* DESKTOP: Show all columns side by side */}
-        <div className="hidden sm:flex sm:gap-4">
+        <div className="hidden sm:flex sm:gap-1">
           <div className="flex-1">
             <ErrorBoundary>
               <TokenColumn title="New Pairs" tokens={newTokens} isLoading={isLoading} />

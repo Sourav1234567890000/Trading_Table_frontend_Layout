@@ -1,6 +1,6 @@
-Token Discovery Table – Axiom Trade (Frontend Task)
+Token Discovery Table – tradeTable Trade (Frontend Task)
 
-A pixel-accurate, performance-optimized replica of Axiom Trade’s Token Discovery (Pulse) table, built with modern frontend best practices.
+A pixel-accurate, performance-optimized replica of tradeTable Trade’s Token Discovery (Pulse) table, built with modern frontend best practices.
 
 https://axiom.trade/pulse - refernce link
 
@@ -60,7 +60,7 @@ Column-level Error Boundaries (isolated failures)
 
 Graceful UI fallback on runtime errors
 
-5- Dark theme matching Axiom Trade
+5- Dark theme matching tradeTable Trade
 
 Smooth hover transitions
 

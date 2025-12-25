@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function AxiomHeader() {
+export default function tradeTableHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -30,11 +30,11 @@ export default function AxiomHeader() {
             href="/markets"
             className="hover:text-white transition-colors duration-200"
           >
-            Markets
+            Discover
           </Link>
           <Link
             href="/pulse"
-            className="hover:text-white transition-colors duration-200"
+            className="text-white transition-colors duration-200"
           >
             Pulse
           </Link>
@@ -42,7 +42,7 @@ export default function AxiomHeader() {
             href="/docs"
             className="hover:text-white transition-colors duration-200"
           >
-            Docs
+            Portfolio
           </Link>
         </nav>
 

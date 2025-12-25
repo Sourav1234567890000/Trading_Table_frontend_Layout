@@ -26,8 +26,8 @@ body {
 }
 
 
-/* axiom style hover */
-.axiom-hover {
+/* tradeTable style hover */
+.tradeTable-hover {
   background: #121218;
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 6px 10px;
