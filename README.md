@@ -110,6 +110,9 @@ Production-grade error handling
 
 Built to scale and extend easily across future features.
 
+Screenshots (lighthouse performance)
+1. desktop performance
+2. mobile 
 
 folder structure
 ├── app/

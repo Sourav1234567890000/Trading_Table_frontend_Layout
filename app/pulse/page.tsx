@@ -9,7 +9,7 @@ import ErrorBoundary from "@/components/common/ErrorBoundary";
 import Header from "@/components/common/Header";
 
 export default function PulsePage() {
-  const isLoading = false;
+  const isLoading = true;
   const liveTokens = useMockPriceUpdates(mockTokens);
 
   const newTokens = liveTokens.filter((t: Token) => t.status === "new");
